@@ -1,0 +1,1 @@
+export * from './authAction'//'*' berarti mengakes semua yang ada di directory yang dituju

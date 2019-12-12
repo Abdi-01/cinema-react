@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -19,4 +20,25 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+.sizeCarousle{
+  height: auto;
+  width: 50%;
+  margin: auto;
+}
+.center{
+  margin: auto;
+}
+.sizeCard{
+  width: 18rem;
+  margin: auto;
+}
+
+.sizePage{
+  width: 100%;
+}
+
+.borderCard{
+  border-radius:2px ;
 }
