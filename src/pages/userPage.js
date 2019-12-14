@@ -38,13 +38,13 @@ class UserPage extends Component {
         return this.state.data.map((val, index) => {
             return (
                 <tr key={val.id}>
-                    <td>{index + 1}</td>
-                    <td id={val.id}><img src={val.moviesImage} alt='imagePoster' style={{ width: 200 }}></img></td>
-                    <td id={val.id}>{val.moviesTitle}</td>
-                    <td id={val.id}>Location</td>
-                    <td id={val.id}>Time</td>
-                    <td id={val.id}>Amount</td>
-                    <td id={val.id}>{val.seat.map((val) =>
+                    <td style={{ verticalAlign: 'middle' }}>{index + 1}</td>
+                    <td id={val.id} style={{ verticalAlign: 'middle' }}><img src={val.moviesImage} alt='imagePoster' style={{ width: 200 }}></img></td>
+                    <td id={val.id} style={{ verticalAlign: 'middle' }}>{val.moviesTitle}</td>
+                    <td id={val.id} style={{ verticalAlign: 'middle' }}>Location</td>
+                    <td id={val.id} style={{ verticalAlign: 'middle' }}>Time</td>
+                    <td id={val.id} style={{ verticalAlign: 'middle' }}>{val.seat.length}</td>
+                    <td id={val.id} style={{ verticalAlign: 'middle' }}>{val.seat.map((val) =>
                         < Toast >
                             <ToastHeader icon="warning">
                                 {(val[0] + 10).toString(36).toUpperCase() + val[1]}
@@ -52,8 +52,8 @@ class UserPage extends Component {
                         </Toast>
                     )}
                     </td>
-                    <td id={val.id}>IDR. {val.price.toLocaleString()}</td>
-                    <td id={val.id}><button className="btn btn-danger" onClick={() => this.deleteData(val.id)}>Delete</button></td>
+                    <td id={val.id} style={{ verticalAlign: 'middle' }}>IDR. {val.price.toLocaleString()}</td>
+                    <td id={val.id} style={{ verticalAlign: 'middle' }}><button className="btn btn-danger btn-sm" onClick={() => this.deleteData(val.id)}>Delete</button></td>
                     {/* Jika memanggil function dengan parameter butuh callback '()=>' */}
                 </tr >
             )
@@ -135,7 +135,7 @@ class UserPage extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{ marginBottom: '5%' }}>
                 <p className="h2">User Cart Product</p>
                 <table className="table">
                     <thead>
