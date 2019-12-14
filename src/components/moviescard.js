@@ -31,7 +31,7 @@ class MoviesCard extends Component {
                 {this.state.data.map((val, index) =>
                     <div className="col-3" style={{ borderRadius: 40 }} key={val.id}>                
                         <Link to={`/MoviesDetail?id=${val.id}`}>
-                            <div className="card" style={{ width: '500px', cursor: 'pointer', borderRadius: 40 }}>
+                            <div className="card" style={{ width: '100%', cursor: 'pointer', borderRadius: 40 }}>
                                 <img src={val.image} className="card-img-top" alt="..." />
                                 <div className="card-body">
                                     <h5 className="card-title">{val.name}</h5>

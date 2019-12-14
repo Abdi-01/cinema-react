@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap'
 import { connect } from 'react-redux'
-
+import { Button, Modal, ModalHeader,Alert } from 'reactstrap';
 // import LoginPopUp from '../components/loginPopUp'
 import Axios from 'axios'
+import SeatReservation from '../components/seatReservation'
 
 class MoviesDetail extends Component {
     state = {
@@ -11,7 +11,21 @@ class MoviesDetail extends Component {
             {
 
             }
-        ]
+        ],
+        modal: false,
+        alert: false
+    }
+    toggle = this.toggle.bind(this);
+    toggleAlert = this.toggleAlert.bind(this);
+    toggle() {
+        this.setState({
+            modal: !this.state.modal
+        });
+    }
+    toggleAlert() {
+        this.setState({
+            alert: !this.state.alert
+        });
     }
     componentDidMount() {
         var id = this.props.location.search.split('=')[1];
@@ -31,7 +45,7 @@ class MoviesDetail extends Component {
         console.log(genre)
         if (genre) {
             return genre.map((val, index) => {
-                return <Button color="warning" key={index} style={{ margin: 3 }}>{val}</Button>
+                return <Button outline color="warning" key={index} style={{ margin: 3 }}>{val}</Button>
             })
         }
     }
@@ -53,8 +67,11 @@ class MoviesDetail extends Component {
     render() {
         let { data } = this.state;
         return (
-            <div className="container-fluid" >
-                <div className="jumbotron center" style={{ width: '75%', marginTop: '5%' }}>
+            <div className="container-fluid" style={{ margin: '0 auto' }} >
+                <Alert color="warning" isOpen={this.state.alert} toggle={this.toggleAlert}>
+                    Please login first!
+                    </Alert>
+                <div className="jumbotron center" style={{ width: '75%' }}>
                     <div className="row">
                         <div className="col-3" style={{ textAlign: 'center' }}>
                             {console.log(data[0].name)}
@@ -72,10 +89,14 @@ class MoviesDetail extends Component {
                             </div>
                         </div>
                         {this.props.username ?
-                            <Button className="float-right" size="lg" onClick={this.buyTicket} style={{ background: "#0d47a1", borderBottomLeftRadius: 15, borderTopRightRadius: 15, marginBottom: 0 }}>Buy Ticket</Button>
+                            <Button className="float-right" size="lg" onClick={this.toggle} style={{ background: "#0d47a1", borderBottomLeftRadius: 15, borderTopRightRadius: 15, marginBottom: 0 }}>Buy Ticket</Button>
                             :
-                            <Button className="float-right" size="lg" onClick={this.getTicket} style={{ background: "#0d47a1", borderBottomLeftRadius: 15, borderTopRightRadius: 15, marginBottom: 0 }}>Get Your Ticket</Button>
+                            <Button className="float-right" size="lg" onClick={this.toggleAlert} style={{ background: "#0d47a1", borderBottomLeftRadius: 15, borderTopRightRadius: 15, marginBottom: 0 }}>Get Your Ticket</Button>
                         }
+                        <Modal size="lg" isOpen={this.state.modal} toggle={this.toggle}>
+                        <ModalHeader toggle={this.toggle}>Choose Your Seat</ModalHeader>
+                            <SeatReservation filmId={this.props.location.search.split('=')[1]}></SeatReservation>
+                        </Modal>
                     </div>
                 </div>
             </div>

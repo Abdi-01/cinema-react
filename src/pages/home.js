@@ -25,7 +25,7 @@ class Home extends Component {
     render() {
         return (
             <div style={{marginBottom:'5%'}}>
-                <div style={{ height: 390 }}>
+                <div style={{ height: 300 }}>
                     <ImgSlide></ImgSlide>
                 </div>
                 <div className="container-fluid">

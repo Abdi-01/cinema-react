@@ -9,8 +9,8 @@ import Home from './pages/home'
 import MoviesDetail from './pages/moviesdetail'
 import Footer from './components/footer'
 // import Reserve from './components/reservation'
-// import AdminPage from './pages/adminPage'
-// import UserPage from './pages/userPage'
+import AdminPage from './pages/adminPage'
+import UserPage from './pages/userPage'
 
 class App extends Component {
   constructor(props) {
@@ -36,8 +36,8 @@ class App extends Component {
       <div>
         <Header></Header>
         <Route path='/' component={Home} exact></Route>
-        {/* <Route path='/AdminPage' component={AdminPage}></Route>
-        <Route path='/UserPage' component={UserPage}></Route> */}
+        <Route path='/AdminPage' component={AdminPage}></Route>
+        <Route path='/UserPage' component={UserPage}></Route>
         <Route path='/MoviesDetail' component={MoviesDetail}></Route>
         {/* <Footer /> */}
         <Footer></Footer>

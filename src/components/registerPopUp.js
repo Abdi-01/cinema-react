@@ -1,5 +1,5 @@
 import React from 'react';
-import { Progress, Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Input, Toast, ToastBody, ToastHeader, Spinner } from 'reactstrap';
+import { Progress, Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Input } from 'reactstrap';
 import { connect } from 'react-redux'
 import { login } from '../redux/action'
 import Axios from 'axios'
@@ -8,7 +8,6 @@ class RegisPopUp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            // data: [],
             modal: false,
             num: false,
             spec: false,
@@ -44,7 +43,6 @@ class RegisPopUp extends React.Component {
                             alert('Username has been taken')
                         }
                         else {
-
                             Axios.post('http://localhost:2000/users', {
                                 username: username,
                                 password: password,
@@ -54,10 +52,10 @@ class RegisPopUp extends React.Component {
                                 .then((res) => {
                                     console.log('Regis Success' + res.data)
                                     Axios.get(`http://localhost:2000/users?username=${username}&password=${password}`)//update pages dengan menambah fungsi dan mengkosongkan value pada variable penampung nilai
-                                    .then((res) => {
+                                        .then((res) => {
                                             console.log(res.data)
                                             this.setState({ data: res.data })//untuk mengubah isi state data
-                                            localStorage.setItem(`userlogin`,username)
+                                            localStorage.setItem(`userlogin`, username)
                                             this.props.login(res.data[0])///direct langsung ke login
                                         })
                                     // this.componentDidMount()//update pages dengan panggil fungsi get cara 2
@@ -65,7 +63,6 @@ class RegisPopUp extends React.Component {
                                 .catch((err) => {
                                     console.log(err)
                                 })
-
                         }
 
                     })
@@ -75,17 +72,6 @@ class RegisPopUp extends React.Component {
             alert('Please fill in all the forms!')
         }
     }
-    //onchange, menjalankan fungsi setiap update isi
-    // notif = () => {
-    //     return (<Toast>
-    //         <ToastHeader icon={<Spinner size="sm" color="success" />}>
-    //             Registration Successfully
-    //     </ToastHeader>
-    //         <ToastBody>
-    //             Please, login your account after this!
-    //     </ToastBody>
-    //     </Toast>)
-    // }
 
     regisSubmit = () => {
         this.regisUser()
@@ -113,22 +99,12 @@ class RegisPopUp extends React.Component {
 
     passwordMeter = () => {
         if (this.state.char) {
-            // console.log('abjad'+this.state.abjad)
-            // console.log('num'+this.state.num)
-            // console.log('spec'+this.state.spec)
             if (this.state.abjad && this.state.num && this.state.spec) {
                 return <Progress striped bar color="success" value="100">More than Stronger</Progress>
             }
             if ((this.state.abjad && this.state.num) || (this.state.abjad && this.state.spec) || (this.state.num && this.state.spec)) {
-
                 return <Progress striped bar value="75">Strong</Progress>
             }
-            // else if ((this.state.abjad && this.state.spec)) {
-            //     return <Progress striped bar value="75">Strong</Progress>
-            // }
-            // else if ((this.state.num && this.state.spec)) {
-            //     return <Progress striped bar color="warning" value="75">Strong</Progress>
-            // }
             else {
                 return <Progress striped bar color="warning" value="25">Weak</Progress>
             }
@@ -141,7 +117,7 @@ class RegisPopUp extends React.Component {
     render() {
         return (
             <div>
-                <Button color="light" className="d-inline-block align-top" onClick={this.toggle} style={{ cursor: "pointer" }}>Register</Button>
+                <Button color="light" size='sm' className="d-inline-block align-top" onClick={this.toggle} style={{ cursor: "pointer" }}>Register</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle}>
                     <ModalHeader>Register Your Account</ModalHeader>
                     <ModalBody >
