@@ -20,14 +20,14 @@ class Header extends Component {
                             Cinema21</Link>
                         <ul className="navbar-nav">
                             <li className="nav-item active">
-                                <Link to='/movie' className="nav-link" >Movie<span className="sr-only">(current)</span></Link>
+                                <Link to='/Theater' className="nav-link" >Theaters<span className="sr-only">(current)</span></Link>
                             </li>
                             <li className="nav-item">
-                                <Link to='/cinema' className="nav-link" >Cinema</Link>
+                                <Link to='/Upcoming' className="nav-link" >Upcoming</Link>
                             </li>
-                            <li className="nav-item">
+                            {/* <li className="nav-item">
                                 <Link to='/promotion' className="nav-link" >Promotion</Link>
-                            </li>
+                            </li> */}
                             {/* <li className="nav-item">
                                 <Link className="nav-link disabled" href="#" tabIndex="-1" aria-disabled="true">Disabled</Link>
                             </li> */}
