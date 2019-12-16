@@ -37,6 +37,7 @@
     ]
   },
   "devDependencies": {
+    "react-dev-utils": "^10.0.0",
     "react-scripts": "^3.3.0"
   }
 }
