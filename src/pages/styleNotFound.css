@@ -1,57 +1,9 @@
-
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
-}
-
-.sizeCarousle{
-  height: auto;
-  width: 50%;
-  margin: auto;
-}
-.center{
-  margin: auto;
-}
-.sizeCard{
-  width: 18rem;
-  margin: auto;
-}
-
-.sizePage{
-  width: 100%;
-}
-
-.borderCard{
-  border-radius:2px ;
-}
-/* /password table */
-.hidetext { -webkit-text-security: disc; /* Default */ }
-
-/* / style page not found*/
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
-.body {
+body {
   padding: 0;
   margin: 0;
 }

@@ -7,6 +7,12 @@ export const login = (data) => {
     }
 }
 
+export const logout = () => {
+    return {
+        type: 'LOGOUT'
+    }
+}
+
 // export const login = (username, password) => {//satu fungsi menjalankan dua reducer yang berbeda
 //     // let { username, password } = data
 //     return (dispatch) => {
@@ -29,9 +35,3 @@ export const login = (data) => {
 //             )
 //     }
 // }
-
-export const logout = () => {
-    return {
-        type: 'LOGOUT'
-    }
-}

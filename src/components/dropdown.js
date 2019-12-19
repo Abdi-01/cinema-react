@@ -16,15 +16,21 @@ class UserDropdown extends Component {
                     Hi, {this.props.username}
                 </DropdownToggle>
                 <DropdownMenu right>
-                    {/* <DropdownItem header>Profile</DropdownItem> */}
-                    <DropdownItem >Profile</DropdownItem>
-                    <DropdownItem>Contact</DropdownItem>
-                    <DropdownItem>Setting</DropdownItem>
+                    <Link to='/ProfilePage'>
+                        <DropdownItem >Profile</DropdownItem>
+                    </Link>
+                    {/* <DropdownItem>Contact</DropdownItem>
+                    <DropdownItem>Setting</DropdownItem> */}
                     {this.props.role === 'admin'
                         ?
-                        <Link to='/AdminPage'>
-                            <DropdownItem>My Movies</DropdownItem>
-                        </Link>
+                        <div>
+                            <Link to='/AdminPage'>
+                                <DropdownItem>Movies List</DropdownItem>
+                            </Link>
+                            <Link to='/ReportPage'>
+                                <DropdownItem>Report Transaction</DropdownItem>
+                            </Link>
+                        </div>
                         :
                         <Link to='/UserPage'>
                             <DropdownItem>My Ticket Cart <Badge color="success">0</Badge></DropdownItem>
@@ -43,7 +49,7 @@ class UserDropdown extends Component {
 const mapStatetoProps = (state) => {
     return {
         username: state.user.username, //state.user mengarah ke reducer/index.js, state.user.username mengarah ke authreducer.js
-        role: state.user.role
+        role: state.user.role, //state.user mengarah ke reducer/index.js, state.user.username mengarah ke authreducer.js
     }
 }
 

@@ -29,7 +29,7 @@ class MoviesCard extends Component {
         return (
             <div className="row" >
                 {this.state.data.map((val, index) =>
-                    <div className="col-3" style={{ borderRadius: 40 }} key={val.id}>                
+                    <div className="col-3" style={{ borderRadius: 40 }} key={val.id}>
                         <Link to={`/MoviesDetail?id=${val.id}`}>
                             <div className="card" style={{ width: '100%', cursor: 'pointer', borderRadius: 40 }}>
                                 <img src={val.image} className="card-img-top" alt="..." />
@@ -42,7 +42,9 @@ class MoviesCard extends Component {
                                 <div className="card-footer">
                                     {val.genre.map((gen, index) =>
                                         // <div key={val.id}>
-                                        <Button key={index}>{gen}</Button>
+                                        <Link to={`/GenrePage?genre=${gen}`}>
+                                            <Button key={index}>{gen}</Button>
+                                        </Link>
                                         // </div>
                                     )}
                                 </div>

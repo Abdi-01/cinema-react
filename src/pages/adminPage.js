@@ -40,13 +40,13 @@ class AdminPage extends Component {
                 return (
                     <tr key={val.id}>
                         <td >{index + 1}</td>
-                        <td ><input type="text" className="form-control" placeholder="Input Image" ref='imageEdit' /></td>
-                        <td ><input type="text" className="form-control" placeholder="Input Name" ref='nameEdit' /></td>
-                        <td ><input type="text" className="form-control" placeholder="Input Genre" ref='genreEdit' /></td>
-                        <td ><input type="text" className="form-control" placeholder="Input Duration" ref='durationEdit' /></td>
-                        <td ><input type="text" className="form-control" placeholder="Input Director" ref='directorEdit' /></td>
-                        <td ><input type="text" className="form-control" placeholder="Input Casts" ref='castsEdit' /></td>
-                        <td ><input type="text" className="form-control" placeholder="Input Synopsis" ref='synopsisEdit' /></td>
+                        <td ><input type="text" className="form-control" placeholder="Input Image" ref='imageEdit' defaultValue={val.image}/></td>
+                        <td ><input type="text" className="form-control" placeholder="Input Name" ref='nameEdit' defaultValue={val.name}/></td>
+                        <td ><input type="text" className="form-control" placeholder="Input Genre" ref='genreEdit' defaultValue={val.genre}/></td>
+                        <td ><input type="text" className="form-control" placeholder="Input Duration" ref='durationEdit' defaultValue={val.duration}/></td>
+                        <td ><input type="text" className="form-control" placeholder="Input Director" ref='directorEdit' defaultValue={val.director}/></td>
+                        <td ><input type="text" className="form-control" placeholder="Input Casts" ref='castsEdit' defaultValue={val.casts}/></td>
+                        <td ><input type="text" className="form-control" placeholder="Input Synopsis" ref='synopsisEdit' defaultValue={val.synopsis}/></td>
                         {/* <td ><input type="number" className="form-control" id="harga" placeholder="Input Price" ref='hargaEdit' /></td> */}
                         <td ><Button size="sm" onClick={() => this.yesEdit(val.id)}>Yes</Button>
                             &nbsp;
@@ -95,11 +95,12 @@ class AdminPage extends Component {
         else {
             Axios.put(`http://localhost:2000/movies/${id}`, {
                 name: nameEdit,
-                genre: genreEdit,
+                genre: genreEdit.split(','),
                 director: directorEdit,
                 duration: durationEdit,
                 synopsis: synopsisEdit,
-                casts: castsEdit,
+                casts: castsEdit.split(','),
+                booked:[],
                 image: imageEdit
             })
                 .then((res) => {
@@ -131,6 +132,7 @@ class AdminPage extends Component {
             duration: durationNew,
             synopsis: synopsisNew,
             casts: castsNew.split(','),
+            booked:[],
             image: imageNew
         })
             .then((res) => {

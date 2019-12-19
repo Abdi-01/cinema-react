@@ -33,6 +33,7 @@ class LoginPopUp extends React.Component {
             alert2: !this.state.alert2
         });
     }
+
     loginUser = () => {
         var username = this.text.value
         var password = this.pass.value
@@ -42,7 +43,7 @@ class LoginPopUp extends React.Component {
             });
         }
         else {
-            Axios.get(`http://localhost:2000/users?username=${username}&password=${password}`, { //tanda tanya digunakan utk mencari
+            Axios.get(`http://localhost:2000/users?(username=${username}||email=${username})&password=${password}`, { //tanda tanya digunakan utk mencari
                 username,
                 password
             })
@@ -54,7 +55,7 @@ class LoginPopUp extends React.Component {
                     }
                     else {
                         console.log(res.data)
-                        localStorage.setItem(`userlogin`, username)//menyimpan data username pada local storage agar ketika page direfresh user tetap login 
+                        localStorage.setItem(`userlogin`,res.data[0].username)//menyimpan data username pada local storage agar ketika page direfresh user tetap login 
                         this.props.login(res.data[0])//masuk authAction.js
                     }
                 })
@@ -82,7 +83,7 @@ class LoginPopUp extends React.Component {
                     <ModalBody >
                         <Form>
                             <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                                <Input type="username" name="email" innerRef={(text) => this.text = text} id="exampleEmail" placeholder="Username" />
+                                <Input type="username" name="email" innerRef={(text) => this.text = text} id="exampleEmail" placeholder="Username or Password" />
                             </FormGroup>
                             <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                                 <Input type="password" name="password" innerRef={(pass) => this.pass = pass} id="examplePassword" placeholder="Password" />

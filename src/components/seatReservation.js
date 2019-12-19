@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Button, ModalBody, ModalFooter, Tooltip } from 'reactstrap';
+import { Button, ModalBody, ModalFooter, UncontrolledTooltip } from 'reactstrap';
 import EventSeatIcon from '@material-ui/icons/EventSeat';
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
+// import { seatChosen } from '../redux/action'
 import Axios from 'axios';
 // import Axios from 'axios';
 
@@ -11,6 +12,7 @@ class SeatReservation extends Component {
         super(props);
         this.state = {
             data: [],
+            dataCheck: [],
             booked: [[0, 0], [0, 1]],
             chosen: [],
             price: 0,
@@ -26,6 +28,7 @@ class SeatReservation extends Component {
     }
     componentDidMount() {
         let id = this.props.filmId
+        console.log(id)
         Axios.get(`http://localhost:2000/movies/${id}`)
             .then((res) => {
                 this.setState({ booked: res.data.booked })
@@ -113,9 +116,9 @@ class SeatReservation extends Component {
                                     </div>
                                 )
                             }
+
                             return (
                                 <div key={_i}>
-                                    {/* <h3>{_i}</h3> */}
                                     <EventSeatIcon
                                         key={val.id}
                                         onClick={() => this.btSelectSeat([index, _i])}
@@ -124,6 +127,9 @@ class SeatReservation extends Component {
                                         id={"Tooltip-" + index + _i}
                                     >
                                     </EventSeatIcon>
+                                    <UncontrolledTooltip placement="top" target={"Tooltip-" + index + _i}>
+                                        {(index + 10).toString(36).toUpperCase() + (_i + 1).toString()}
+                                    </UncontrolledTooltip>
                                 </div>
                             )
 
@@ -134,47 +140,56 @@ class SeatReservation extends Component {
         })
     }
 
-    seatOrdinat = (id, idn) => {
-        return (
-            <Tooltip
-                placement='top'
-                isOpen={this.state.TooltipOpen}
-                target={id + idn}
-                toggle={this.toggleTips}
-            >
-                {(id + 10).toString(36).toUpperCase() + idn}
-            </Tooltip>
-        )
-    }
+    // dateBook=()=>{
+    //     var a = new
+    // }
 
     addToCart = () => {
-        let { chosen } = this.state;
-        var book = this.state.data.booked;
-        for (var i = 0; i < chosen.length; i++) {
-            book.push(chosen[i])
-        }
-        console.log(book)
-        Axios.patch(`http://localhost:2000/movies/${this.state.data.id}`, {
-            booked: book
-        })
+        let { data } = this.state;
+        let a = new Date()
+        var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thrusday', 'Friday', 'Saturday'];
+        // this.props.seatChosen(chosen)
+        Axios.get(`http://localhost:2000/userTransaction?username=${localStorage.getItem('userlogin')}&moviesTitle=${data.name}`)
             .then((res) => {
-                Axios.post(`http://localhost:2000/userTransaction`, {
-                    username: this.props.username,
-                    moviesImage: this.state.data.image,
-                    moviesTitle: this.state.data.name,
-                    ticket_amount: this.state.count,
-                    price: this.state.price,
-                    seat: this.state.chosen,
-                    status: 'Unpaid'
-                })
-                this.setState({
-                    chosen: [],
-                    price: 0,
-                    count: 0
-                })
-                alert('Booking Succesfull!')
-                this.setState({ redirect: true })
+                console.log(this.state.chosen.map((val)=>{
+                    console.log(val)
+                }))
+                // this.setState({dataCheck:res.data})
+                if (res.data.length > 0 && res.data[0].moviesTitle===data.name) {
+                    Axios.patch(`http://localhost:2000/userTransaction/${res.data[0].id}`, {
+                        ticket_amount: (parseInt(res.data[0].ticket_amount) + parseInt(this.state.count)),
+                        price: (res.data[0].price + this.state.price),
+                        seat: res.data[0].seat.concat(this.state.chosen)
+                        // seat: this.state.chosen.concat((val) =>{
+                        //     return res.data[0].seat.concat(val)
+                        // })
+                    })
+                        .then((res) => {
+                            console.log(res.data)
+                        })
+                }
+                else{
+                    Axios.post(`http://localhost:2000/userTransaction`, {
+                        username: this.props.username,
+                        time: `${days[a.getDay()]}, ${a.getDate()}/${a.getMonth()}/${a.getFullYear()}  ${a.getHours()}:${a.getMinutes()}`,
+                        moviesImage: this.state.data.image,
+                        moviesTitle: this.state.data.name,
+                        ticket_amount: this.state.count,
+                        price: this.state.price,
+                        seat: this.state.chosen,
+                        IDfilm: this.props.filmId,
+                        status: 'Unpaid'
+                    })
+                    this.setState({
+                        chosen: [],
+                        price: 0,
+                        count: 0
+                    })
+                }
             })
+
+        alert('Booking Succesfull!')
+        this.setState({ redirect: true })
     }
 
     render() {
@@ -213,8 +228,41 @@ class SeatReservation extends Component {
 const mapStatetoProps = (state) => {
     return {
         username: state.user.username,
-        role: state.user.role
+        role: state.user.role,
+        // seat:state.seat.chosen
     }
 }
 
 export default connect(mapStatetoProps)(SeatReservation)
+
+
+
+// addToCart = () => {
+//     let { chosen } = this.state;
+//     var book = this.state.data.booked;
+//     for (var i = 0; i < chosen.length; i++) {
+//         book.push(chosen[i])
+//     }
+//     console.log(book)
+//     Axios.patch(`http://localhost:2000/movies/${this.state.data.id}`, {
+//         booked: book
+//     })
+//         .then((res) => {
+//             Axios.post(`http://localhost:2000/userTransaction`, {
+//                 username: this.props.username,
+//                 moviesImage: this.state.data.image,
+//                 moviesTitle: this.state.data.name,
+//                 ticket_amount: this.state.count,
+//                 price: this.state.price,
+//                 seat: this.state.chosen,
+//                 status: 'Unpaid'
+//             })
+//             this.setState({
+//                 chosen: [],
+//                 price: 0,
+//                 count: 0
+//             })
+//             alert('Booking Succesfull!')
+//             this.setState({ redirect: true })
+//         })
+// }

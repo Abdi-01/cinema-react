@@ -1,0 +1,420 @@
+{
+  "users": [
+    {
+      "username": "admin",
+      "password": "123456789",
+      "email": "admin@admin.com",
+      "role": "admin",
+      "id": 1
+    },
+    {
+      "username": "Al",
+      "password": "1234",
+      "email": "abdi@mail.com",
+      "role": "user",
+      "id": 2
+    },
+    {
+      "username": "Ibnu",
+      "password": "asdfghjkl",
+      "email": "ibnu@mail.com",
+      "role": "user",
+      "id": 3
+    },
+    {
+      "username": "carel",
+      "password": "qwertyuiop",
+      "email": "carel@mail.com",
+      "role": "user",
+      "id": 4
+    },
+    {
+      "username": "Chris",
+      "password": "asdfghjkl",
+      "email": "chris@mail.com",
+      "role": "user",
+      "id": 5
+    },
+    {
+      "username": "Michel",
+      "password": "987654321",
+      "email": "michel@mail.com",
+      "role": "user",
+      "id": 6
+    },
+    {
+      "username": "Budi",
+      "password": "asdf1234",
+      "email": "budi@mail.com",
+      "role": "user",
+      "id": 7
+    },
+    {
+      "username": "Bima",
+      "password": "12345678",
+      "email": "bima@mail.com",
+      "role": "user",
+      "id": 8
+    },
+    {
+      "username": "Azza",
+      "password": "asdf1234",
+      "email": "azza@mail.com",
+      "role": "user",
+      "id": 9
+    },
+    {
+      "username": "arul",
+      "password": "12345678as",
+      "email": "arul@mail.com",
+      "role": "user",
+      "id": 10
+    }
+  ],
+  "movies": [
+    {
+      "name": "The Good Liar",
+      "genre": [
+        "Drama"
+      ],
+      "director": "Ibnu Wildan",
+      "duration": "108",
+      "synopsis": "Berawal dari perkenalan di situs kencan daring, Roy (Ian McKellen) seorang penipu ulung berhasil mendekati Betty, janda kaya raya dengan harta melimpah. Tapi hubungan keduanya mendapat respon keras dari keluarga Betty, yang menduga Roy punya niat jahat. Saat memulai misinya ternyata Roy justru jatuh cinta kepada Betty. Roy yang awalnya bisa menjalankan misinya dengan mudah, justru harus melalui melewati jalan yang bisa membahayakan dirinya.",
+      "casts": [
+        "Helen Mirren",
+        "Ian McKellen",
+        "Russel Tovey"
+      ],
+      "booked": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157423720057093_287x421.jpg",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "name": "Trinity Traveler",
+      "genre": [
+        "Drama"
+      ],
+      "director": "Rizal Mantovani",
+      "duration": 97,
+      "synopsis": "Trinity (Maudy Ayunda) menerbitkan buku pertamanya dan menjadi bestseller. Sekarang dia lebih dikenal sebagai TRINITY TRAVELER dan dapat beasiswa S2 di Filipina sambil tetap menjalani hobby traveling-nya. Bapak (Farhan) dan Ibu (Cut Mini) selalu mendesaknya segera menikah, karena menurut mereka dengan menikah Trinity akan lebih bahagia. Trinity kembali bertemu dengan Paul (Hamish Daud) tapi menghadapi dilema antara mengejar cinta dan passion-nya.",
+      "casts": [
+        "Maudy Ayunda",
+        "Hamish Daud",
+        "Rachel Amanda"
+      ],
+      "booked": [
+        [
+          4,
+          17
+        ],
+        [
+          4,
+          18
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157138861225634_287x421.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Sang Perwira",
+      "genre": [
+        "Drama",
+        "Action"
+      ],
+      "director": "Ponti Gea",
+      "duration": 118,
+      "synopsis": "HORAS (IPDA Dimas Adit S), seorang pemuda yang lahir di sebuah kampung di tepian Danau Toba, bercita-cita menjadi polisi. Keinginannya tersebut sempat ditentang oleh ayahnya lantaran ayahnya ingin Horas menjadi pengusaha sukes agar bisa merubah status sosial keluarga Horas dari ekonomi bawah menjadi strata menengah ke atas. Mampukah Horas mewujudkan cita-citanya? Cerita makin menarik dengan kisah cinta Horas dan Nauli (Anggika Bolsterli) yang romantis dan rumit.",
+      "casts": [
+        "Ipda Aditia ACP",
+        "Anggika Bolsterli",
+        "Ipda Dimas Adit S"
+      ],
+      "booked": [
+        [
+          4,
+          13
+        ],
+        [
+          4,
+          14
+        ],
+        [
+          4,
+          15
+        ],
+        [
+          4,
+          16
+        ],
+        [
+          4,
+          17
+        ]
+      ],
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157379161737188_287x421.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Nightmare Side Delusional",
+      "genre": [
+        "Drama",
+        "Horror"
+      ],
+      "director": "Joel Fadly",
+      "duration": 100,
+      "synopsis": "Naya (Fay Nabila) adalah siswi baru di salah satu SMA di Bandung. Naya memiliki kemampuan yang dikenal sebagai anak indigo. Di sekolah barunya, Naya bertemu dengan Shelly (Gege Elisa) yang memiliki kemampuan sama. Namun, sifat Shelly yang tertutup membuat Naya penasaran. Di saat yang sama, Naya juga dibuat penasaran oleh siaran radio Nightmare Side yang didengarnya dan selalu diikuti oleh mimpi buruk seolah kejadian itu nyata.",
+      "casts": [
+        "Gege Elisa",
+        "Elina Joerg",
+        "Fay Nabila"
+      ],
+      "booked": [],
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157310760872775_287x421.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Frozen II",
+      "genre": [
+        "Animation",
+        "Comedy"
+      ],
+      "director": "Chris Buck",
+      "duration": 103,
+      "synopsis": "Anna, Elsa, Kristoff, Olaf dan Sven pergi meninggalkan Arendelle untuk melakukan perjalanan ke sebuah tempat asing dan penuh keajaiban. Mereka berangkat untuk menemukan asal usul kekuatan Elsa dan juga untuk menyelamatkan kerajaan mereka.",
+      "casts": [
+        "Kristen Bell",
+        "Idina Menzel",
+        "Jonathan Groff"
+      ],
+      "booked": [
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          16
+        ],
+        [
+          3,
+          15
+        ],
+        [
+          3,
+          14
+        ],
+        [
+          3,
+          13
+        ]
+      ],
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157250534676979_287x421.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Primal",
+      "genre": [
+        "Action"
+      ],
+      "director": "Nick Powell",
+      "duration": 96,
+      "synopsis": "Frank Walsh (Nicolas Cage) adalah seorang spesialis pemburu binatang liar. Hewan-hewan buruannya dikenal langka dan sangat berbahaya. Hasil tangkapan Frank akan dijual kepada penawar tertinggi. Masalah bermula saat kapal yang membawa Frank menuju AS ditumpangi oleh seorang pembunuh bayaran profesional. Dalam perjalanan menuju AS, sang pembunuh berhasil lolos dan melepaskan semua buruan Frank dan membuat kekacauan di dalam kapal.",
+      "casts": [
+        "Nicolas Cage",
+        "Famke Jansenn",
+        "Kevin Durand"
+      ],
+      "booked": [],
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/15743294977296_287x421.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Ford V Ferrari",
+      "genre": [
+        "Action",
+        "Biography",
+        "Drama"
+      ],
+      "director": "James Mangold",
+      "duration": 152,
+      "synopsis": "2 pemenang Academy Award, Matt Damon dan Christian Bale berperan di FORD v FERRARI, berdasarkan kisah nyata yang luar biasa dari Carroll Shelby (Damon), seorang perancang mobil visioner dari Amerika bersama Ken Miles (Bale), seorang pembalap Inggris yang tak kenal takut. Mereka bersama-sama berjuang menghadapi campur tangan perusahaan, hukum fisika, dan masalah pribadi mereka sendiri ketika membangun mobil balap revolusioner bagi Ford Motor Company untuk menantang mobil balap buatan Enzo Ferrari yang mendomniasi 24 Jam Le Mans di Perancis pada tahun 1966.",
+      "casts": [
+        "Matt Damon",
+        "Christian Bale",
+        "Jon Bernthal"
+      ],
+      "booked": [],
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/1572858859730_287x421.jpg"
+    },
+    {
+      "name": "sadasda, dgsgdg",
+      "genre": [
+        "sadasda",
+        "dgsgdg"
+      ],
+      "director": "sdsd",
+      "duration": "122",
+      "synopsis": "asadas",
+      "casts": [
+        "sadasda",
+        "dgsgdg"
+      ],
+      "booked": [],
+      "image": "sadadasdasd",
+      "id": 9
+    }
+  ],
+  "userTransaction": [],
+  "userHistory": [
+    {
+      "username": "Chris",
+      "time": "Wednesday, 18/11/2019  23:16",
+      "moviesImage": "https://media.21cineplex.com/webcontent/gallery/pictures/157423720057093_287x421.jpg",
+      "moviesTitle": "The Good Liar",
+      "ticket_amount": 2,
+      "price": 10000,
+      "seat": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "IDfilm": "2",
+      "status": "Paid",
+      "id": 1
+    },
+    {
+      "username": "Al",
+      "time": "Wednesday, 18/11/2019  23:16",
+      "moviesImage": "https://media.21cineplex.com/webcontent/gallery/pictures/157379161737188_287x421.jpg",
+      "moviesTitle": "Sang Perwira",
+      "ticket_amount": 5,
+      "price": 25000,
+      "seat": [
+        [
+          4,
+          13
+        ],
+        [
+          4,
+          14
+        ],
+        [
+          4,
+          15
+        ],
+        [
+          4,
+          16
+        ],
+        [
+          4,
+          17
+        ]
+      ],
+      "IDfilm": "4",
+      "status": "Paid",
+      "id": 2
+    },
+    {
+      "username": "Al",
+      "time": "Thrusday, 19/11/2019  14:35",
+      "moviesImage": "https://media.21cineplex.com/webcontent/gallery/pictures/157138861225634_287x421.jpg",
+      "moviesTitle": "Trinity Traveler",
+      "ticket_amount": 5,
+      "price": 25000,
+      "seat": [
+        [
+          4,
+          17
+        ],
+        [
+          4,
+          18
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "IDfilm": "3",
+      "status": "Paid",
+      "id": 3
+    },
+    {
+      "username": "Al",
+      "time": "Thrusday, 19/11/2019  14:42",
+      "moviesImage": "https://media.21cineplex.com/webcontent/gallery/pictures/157250534676979_287x421.jpg",
+      "moviesTitle": "Frozen II",
+      "ticket_amount": 6,
+      "price": 30000,
+      "seat": [
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          16
+        ],
+        [
+          3,
+          15
+        ],
+        [
+          3,
+          14
+        ],
+        [
+          3,
+          13
+        ]
+      ],
+      "IDfilm": "6",
+      "status": "Paid",
+      "id": 4
+    }
+  ]
+}

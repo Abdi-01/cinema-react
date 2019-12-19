@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { Button, Modal, ModalHeader,Alert } from 'reactstrap';
+import { Button, Modal, ModalHeader, Alert } from 'reactstrap';
 // import LoginPopUp from '../components/loginPopUp'
 import Axios from 'axios'
 import SeatReservation from '../components/seatReservation'
@@ -28,6 +28,7 @@ class MoviesDetail extends Component {
         });
     }
     componentDidMount() {
+        console.log(this.props)
         var id = this.props.location.search.split('=')[1];
         Axios.get(`http://localhost:2000/movies?id=${id}`)
             .then((res) => {
@@ -88,13 +89,21 @@ class MoviesDetail extends Component {
                                 {console.log(data[0].casts)}
                             </div>
                         </div>
-                        {this.props.username ?
+                        {this.props.username && this.props.role === 'user'
+                            ?
                             <Button className="float-right" size="lg" onClick={this.toggle} style={{ background: "#0d47a1", borderBottomLeftRadius: 15, borderTopRightRadius: 15, marginBottom: 0 }}>Buy Ticket</Button>
                             :
-                            <Button className="float-right" size="lg" onClick={this.toggleAlert} style={{ background: "#0d47a1", borderBottomLeftRadius: 15, borderTopRightRadius: 15, marginBottom: 0 }}>Get Your Ticket</Button>
+                            <div>
+                                {this.props.role === 'admin'
+                                    ?
+                                    <Button className="float-right" size="lg" style={{ background: "#0d47a1", borderBottomLeftRadius: 15, borderTopRightRadius: 15, marginBottom: 0 }}>Get Your Ticket</Button>
+                                    :
+                                    <Button className="float-right" size="lg" onClick={this.toggleAlert} style={{ background: "#0d47a1", borderBottomLeftRadius: 15, borderTopRightRadius: 15, marginBottom: 0 }}>Get Your Ticket</Button>
+                                }
+                            </div>
                         }
                         <Modal size="lg" isOpen={this.state.modal} toggle={this.toggle}>
-                        <ModalHeader toggle={this.toggle}>Choose Your Seat</ModalHeader>
+                            <ModalHeader toggle={this.toggle}>Choose Your Seat</ModalHeader>
                             <SeatReservation filmId={this.props.location.search.split('=')[1]}></SeatReservation>
                         </Modal>
                     </div>
