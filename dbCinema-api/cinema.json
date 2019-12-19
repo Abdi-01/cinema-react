@@ -132,6 +132,18 @@
         [
           4,
           2
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          3,
+          10
         ]
       ],
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157138861225634_287x421.jpg"
@@ -171,6 +183,38 @@
         [
           4,
           17
+        ],
+        [
+          4,
+          18
+        ],
+        [
+          3,
+          18
+        ],
+        [
+          2,
+          15
+        ],
+        [
+          1,
+          15
+        ],
+        [
+          0,
+          15
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          4
         ]
       ],
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157379161737188_287x421.jpg"
@@ -271,23 +315,6 @@
       ],
       "booked": [],
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/1572858859730_287x421.jpg"
-    },
-    {
-      "name": "sadasda, dgsgdg",
-      "genre": [
-        "sadasda",
-        "dgsgdg"
-      ],
-      "director": "sdsd",
-      "duration": "122",
-      "synopsis": "asadas",
-      "casts": [
-        "sadasda",
-        "dgsgdg"
-      ],
-      "booked": [],
-      "image": "sadadasdasd",
-      "id": 9
     }
   ],
   "userTransaction": [],
@@ -415,6 +442,76 @@
       "IDfilm": "6",
       "status": "Paid",
       "id": 4
+    },
+    {
+      "username": "Ibnu",
+      "time": "Thrusday, 19/11/2019  15:21",
+      "moviesImage": "https://media.21cineplex.com/webcontent/gallery/pictures/157379161737188_287x421.jpg",
+      "moviesTitle": "Sang Perwira",
+      "ticket_amount": 8,
+      "price": 40000,
+      "seat": [
+        [
+          4,
+          18
+        ],
+        [
+          3,
+          18
+        ],
+        [
+          2,
+          15
+        ],
+        [
+          1,
+          15
+        ],
+        [
+          0,
+          15
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "IDfilm": "4",
+      "status": "Paid",
+      "id": 5
+    },
+    {
+      "username": "Ibnu",
+      "time": "Thrusday, 19/11/2019  15:21",
+      "moviesImage": "https://media.21cineplex.com/webcontent/gallery/pictures/157138861225634_287x421.jpg",
+      "moviesTitle": "Trinity Traveler",
+      "ticket_amount": 3,
+      "price": 15000,
+      "seat": [
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          3,
+          10
+        ]
+      ],
+      "IDfilm": "3",
+      "status": "Paid",
+      "id": 6
     }
   ]
 }

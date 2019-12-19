@@ -24,14 +24,15 @@ class UserTransaction extends Component {
     }
 
     renderDataUser = () => {
+        let a = new Date()
+        var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thrusday', 'Friday', 'Saturday'];
         return this.state.data.map((val, index) => {
             return (
                 <tr key={val.id}>
                     <td style={{ verticalAlign: 'middle' }}>{index + 1}</td>
-                    <td id={val.id} style={{ verticalAlign: 'middle' }}>{val.time}</td>
+                    <td id={val.id} style={{ verticalAlign: 'middle' }}>{`${days[a.getDay()]}, ${a.getDate()}/${a.getMonth()}/${a.getFullYear()}  ${a.getHours()}:${a.getMinutes()}`}</td>
                     <td id={val.id} style={{ verticalAlign: 'middle' }}><img src={val.moviesImage} alt='imagePoster' style={{ width: 200 }}></img></td>
                     <td id={val.id} style={{ verticalAlign: 'middle' }}>{val.moviesTitle}</td>
-                    <td id={val.id} style={{ verticalAlign: 'middle' }}>Location</td>
                     <td id={val.id} style={{ verticalAlign: 'middle' }}>{val.seat.length}</td>
                     <td id={val.id} style={{ verticalAlign: 'middle' }}>{val.seat.map((val, ind) =>
                         < Toast key={ind}>
@@ -61,7 +62,6 @@ class UserTransaction extends Component {
                                     <td >Booked Time</td>
                                     <td style={{ width: 70 }}>Image</td>
                                     <td >Title</td>
-                                    <td >Location</td>
                                     <td >Amount</td>
                                     <td >Seat</td>
                                     <td >Price</td>

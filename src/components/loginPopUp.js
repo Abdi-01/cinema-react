@@ -43,25 +43,48 @@ class LoginPopUp extends React.Component {
             });
         }
         else {
-            Axios.get(`http://localhost:2000/users?(username=${username}||email=${username})&password=${password}`, { //tanda tanya digunakan utk mencari
-                username,
-                password
-            })
-                .then((res) => {
-                    if (res.data.length === 0) {
-                        this.setState({
-                            alert2: !this.state.alert
-                        });
-                    }
-                    else {
-                        console.log(res.data)
-                        localStorage.setItem(`userlogin`,res.data[0].username)//menyimpan data username pada local storage agar ketika page direfresh user tetap login 
-                        this.props.login(res.data[0])//masuk authAction.js
-                    }
+            var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+            if (reg.test(username) === false) {
+                Axios.get(`http://localhost:2000/users?username=${username}&password=${password}`, { //tanda tanya digunakan utk mencari
+                    username,
+                    password
                 })
-                .catch((err) => {
-                    console.log(err)
+                    .then((res) => {
+                        if (res.data.length === 0) {
+                            this.setState({
+                                alert2: !this.state.alert
+                            });
+                        }
+                        else {
+                            console.log(res.data)
+                            localStorage.setItem(`userlogin`, res.data[0].username)//menyimpan data username pada local storage agar ketika page direfresh user tetap login 
+                            this.props.login(res.data[0])//masuk authAction.js
+                        }
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                    })
+            }else{
+                Axios.get(`http://localhost:2000/users?email=${username}&password=${password}`, { //tanda tanya digunakan utk mencari
+                    username,
+                    password
                 })
+                    .then((res) => {
+                        if (res.data.length === 0) {
+                            this.setState({
+                                alert2: !this.state.alert
+                            });
+                        }
+                        else {
+                            console.log(res.data)
+                            localStorage.setItem(`userlogin`, res.data[0].username)//menyimpan data username pada local storage agar ketika page direfresh user tetap login 
+                            this.props.login(res.data[0])//masuk authAction.js
+                        }
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                    })
+            }
         }
     }
 
